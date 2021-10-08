@@ -1,0 +1,16 @@
+{
+  "name": "back-to-the-future-avalanche",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ 0xszeth/back-to-the-future-avalanche",
+    "create-local": "graph create --node http://localhost:8020/ 0xszeth/back-to-the-future-avalanche",
+    "remove-local": "graph remove --node http://localhost:8020/ 0xszeth/back-to-the-future-avalanche",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 0xszeth/back-to-the-future-avalanche"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.22.2",
+    "@graphprotocol/graph-ts": "0.22.1"
+  }
+}

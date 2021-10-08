@@ -1,0 +1,47 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: DInterest
+    network: avalanche
+    source:
+      address: "0xa78276C04D8d807FeB8271fE123C1f94c08A414d"
+      abi: DInterest
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - EDeposit
+        - EFund
+        - EPayFundingInterest
+        - ERolloverDeposit
+        - ESetParamAddress
+        - ESetParamUint
+        - ETopupDeposit
+        - EWithdraw
+        - OwnershipTransferred
+      abis:
+        - name: DInterest
+          file: ./abis/DInterest.json
+      eventHandlers:
+        - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
+          handler: handleEDeposit
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
+          handler: handleERolloverDeposit
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+        - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
+          handler: handleETopupDeposit
+        - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
+          handler: handleEWithdraw
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: ./src/mapping.ts
