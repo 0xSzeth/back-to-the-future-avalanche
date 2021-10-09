@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: aDAIPool
@@ -25,9 +25,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: aDAIPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: aDAIPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -49,7 +49,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiDAIPool
     network: avalanche
@@ -73,9 +73,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: qiDAIPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: qiDAIPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -97,7 +97,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiLINKPool
     network: avalanche
@@ -121,9 +121,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: qiLINKPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: qiLINKPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -145,7 +145,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: aUSDCPool
     network: avalanche
@@ -169,9 +169,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: aUSDCPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: aUSDCPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -193,7 +193,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiUSDCPool
     network: avalanche
@@ -217,9 +217,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: qiUSDCPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: qiUSDCPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -241,7 +241,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: aUSDTPool
     network: avalanche
@@ -265,9 +265,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: aUSDTPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: aUSDTPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -289,7 +289,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiUSDTPool
     network: avalanche
@@ -313,9 +313,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: qiUSDTPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: qiUSDTPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -337,7 +337,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: aWAVAXPool
     network: avalanche
@@ -361,9 +361,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: aWAVAXPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: aWAVAXPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -385,7 +385,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: aWBTCPool
     network: avalanche
@@ -409,9 +409,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: aWBTCPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: aWBTCPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -433,7 +433,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiWBTCPool
     network: avalanche
@@ -457,9 +457,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: qiWBTCPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: qiWBTCPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -481,7 +481,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: aWETHPool
     network: avalanche
@@ -505,9 +505,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: aWETHPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: aWETHPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -529,7 +529,7 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiWETHPool
     network: avalanche
@@ -553,9 +553,9 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: DInterest
-          file: ./abis/DInterest.json
+          file: qiWETHPool/abis/DInterest.json
         - name: IInterestOracle
-          file: ./abis/IInterestOracle.json
+          file: qiWETHPool/abis/IInterestOracle.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
@@ -577,4 +577,4 @@ dataSources:
           handler: handleOwnershipTransferred
       blockHandlers:
         - handler: handleBlock
-      file: ./src/DInterest.ts
+      file: aDAIPool/aDAIPool.wasm

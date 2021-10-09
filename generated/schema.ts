@@ -12,31 +12,35 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class ExampleEntity extends Entity {
+export class DPool extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("count", Value.fromBigInt(BigInt.zero()));
-    this.set("sender", Value.fromBytes(Bytes.empty()));
-    this.set("depositID", Value.fromBigInt(BigInt.zero()));
+    this.set("address", Value.fromString(""));
+    this.set("moneyMarket", Value.fromString(""));
+    this.set("stablecoin", Value.fromString(""));
+    this.set("interestModel", Value.fromString(""));
+    this.set("oneYearInterestRate", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("oracleInterestRate", Value.fromBigDecimal(BigDecimal.zero()));
+    this.set("surplus", Value.fromBigDecimal(BigDecimal.zero()));
   }
 
   save(): void {
     let id = this.get("id");
-    assert(id != null, "Cannot save ExampleEntity entity without an ID");
+    assert(id != null, "Cannot save DPool entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        "Cannot save ExampleEntity entity with non-string ID. " +
+        "Cannot save DPool entity with non-string ID. " +
           'Considering using .toHex() to convert the "id" to a string.'
       );
-      store.set("ExampleEntity", id.toString(), this);
+      store.set("DPool", id.toString(), this);
     }
   }
 
-  static load(id: string): ExampleEntity | null {
-    return changetype<ExampleEntity | null>(store.get("ExampleEntity", id));
+  static load(id: string): DPool | null {
+    return changetype<DPool | null>(store.get("DPool", id));
   }
 
   get id(): string {
@@ -48,30 +52,66 @@ export class ExampleEntity extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get count(): BigInt {
-    let value = this.get("count");
-    return value!.toBigInt();
+  get address(): string {
+    let value = this.get("address");
+    return value!.toString();
   }
 
-  set count(value: BigInt) {
-    this.set("count", Value.fromBigInt(value));
+  set address(value: string) {
+    this.set("address", Value.fromString(value));
   }
 
-  get sender(): Bytes {
-    let value = this.get("sender");
-    return value!.toBytes();
+  get moneyMarket(): string {
+    let value = this.get("moneyMarket");
+    return value!.toString();
   }
 
-  set sender(value: Bytes) {
-    this.set("sender", Value.fromBytes(value));
+  set moneyMarket(value: string) {
+    this.set("moneyMarket", Value.fromString(value));
   }
 
-  get depositID(): BigInt {
-    let value = this.get("depositID");
-    return value!.toBigInt();
+  get stablecoin(): string {
+    let value = this.get("stablecoin");
+    return value!.toString();
   }
 
-  set depositID(value: BigInt) {
-    this.set("depositID", Value.fromBigInt(value));
+  set stablecoin(value: string) {
+    this.set("stablecoin", Value.fromString(value));
+  }
+
+  get interestModel(): string {
+    let value = this.get("interestModel");
+    return value!.toString();
+  }
+
+  set interestModel(value: string) {
+    this.set("interestModel", Value.fromString(value));
+  }
+
+  get oneYearInterestRate(): BigDecimal {
+    let value = this.get("oneYearInterestRate");
+    return value!.toBigDecimal();
+  }
+
+  set oneYearInterestRate(value: BigDecimal) {
+    this.set("oneYearInterestRate", Value.fromBigDecimal(value));
+  }
+
+  get oracleInterestRate(): BigDecimal {
+    let value = this.get("oracleInterestRate");
+    return value!.toBigDecimal();
+  }
+
+  set oracleInterestRate(value: BigDecimal) {
+    this.set("oracleInterestRate", Value.fromBigDecimal(value));
+  }
+
+  get surplus(): BigDecimal {
+    let value = this.get("surplus");
+    return value!.toBigDecimal();
+  }
+
+  set surplus(value: BigDecimal) {
+    this.set("surplus", Value.fromBigDecimal(value));
   }
 }
