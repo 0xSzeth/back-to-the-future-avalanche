@@ -48,6 +48,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiDAIPool
@@ -95,6 +97,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiLINKPool
@@ -142,6 +146,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: aUSDCPool
@@ -189,6 +195,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiUSDCPool
@@ -236,6 +244,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: aUSDTPool
@@ -283,6 +293,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiUSDTPool
@@ -330,6 +342,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: aWAVAXPool
@@ -377,6 +391,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: aWBTCPool
@@ -424,6 +440,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiWBTCPool
@@ -471,6 +489,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: aWETHPool
@@ -518,6 +538,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
   - kind: ethereum/contract
     name: qiWETHPool
@@ -565,6 +587,8 @@ dataSources:
           handler: handleESetParamAddress
         - event: ESetParamUint(indexed address,indexed string,uint256)
           handler: handleESetParamUint
+      blockHandlers:
+        - handler: handleBlock
       file: aDAIPool/aDAIPool.wasm
 templates:
   - kind: ethereum/contract
