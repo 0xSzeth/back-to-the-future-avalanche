@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.6
 schema:
   file: ./schema.graphql
 dataSources:
@@ -11,45 +11,46 @@ dataSources:
       startBlock: 5354349
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: qiDAIPool
     network: avalanche
@@ -59,45 +60,46 @@ dataSources:
       startBlock: 5356355
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: qiLINKPool
     network: avalanche
@@ -107,45 +109,46 @@ dataSources:
       startBlock: 5356883
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: aUSDCPool
     network: avalanche
@@ -155,45 +158,46 @@ dataSources:
       startBlock: 5354542
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: qiUSDCPool
     network: avalanche
@@ -203,45 +207,46 @@ dataSources:
       startBlock: 5356477
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: aUSDTPool
     network: avalanche
@@ -251,45 +256,46 @@ dataSources:
       startBlock: 5354627
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: qiUSDTPool
     network: avalanche
@@ -299,45 +305,46 @@ dataSources:
       startBlock: 5356570
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: aWAVAXPool
     network: avalanche
@@ -347,45 +354,46 @@ dataSources:
       startBlock: 5354448
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: aWBTCPool
     network: avalanche
@@ -395,45 +403,46 @@ dataSources:
       startBlock: 5354723
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: qiWBTCPool
     network: avalanche
@@ -443,45 +452,46 @@ dataSources:
       startBlock: 5356692
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: aWETHPool
     network: avalanche
@@ -491,45 +501,46 @@ dataSources:
       startBlock: 5354810
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
   - kind: ethereum/contract
     name: qiWETHPool
     network: avalanche
@@ -539,42 +550,64 @@ dataSources:
       startBlock: 5356786
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - EDeposit
-        - EFund
-        - EPayFundingInterest
-        - ERolloverDeposit
-        - ESetParamAddress
-        - ESetParamUint
-        - ETopupDeposit
-        - EWithdraw
-        - OwnershipTransferred
+        - Protocol
+        - DPool
+        - Deposit
+        - Funding
+        - FunderDetails
+        - User
       abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
         - name: DInterest
           file: ./abis/DInterest.json
+        - name: MoneyMarket
+          file: ./abis/MoneyMarket.json
+        - name: ChainlinkPriceOracle
+          file: ./abis/ChainlinkPriceOracle.json
         - name: IInterestOracle
           file: ./abis/IInterestOracle.json
+        - name: FundingMultitoken
+          file: ./abis/FundingMultitoken.json
       eventHandlers:
         - event: EDeposit(indexed address,indexed uint256,uint256,uint256,uint256,uint64)
           handler: handleEDeposit
-        - event: EFund(indexed address,indexed uint64,uint256,uint256)
-          handler: handleEFund
-        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
-          handler: handleEPayFundingInterest
-        - event: ERolloverDeposit(indexed address,indexed uint64,indexed uint64)
-          handler: handleERolloverDeposit
-        - event: ESetParamAddress(indexed address,indexed string,address)
-          handler: handleESetParamAddress
-        - event: ESetParamUint(indexed address,indexed string,uint256)
-          handler: handleESetParamUint
         - event: ETopupDeposit(indexed address,indexed uint64,uint256,uint256,uint256)
           handler: handleETopupDeposit
         - event: EWithdraw(indexed address,indexed uint256,indexed bool,uint256,uint256)
           handler: handleEWithdraw
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-      blockHandlers:
-        - handler: handleBlock
-      file: ./src/DInterest.ts
+        - event: EFund(indexed address,indexed uint64,uint256,uint256)
+          handler: handleEFund
+        - event: EPayFundingInterest(indexed uint256,uint256,uint256)
+          handler: handleEPayFundingInterest
+        - event: ESetParamAddress(indexed address,indexed string,address)
+          handler: handleESetParamAddress
+        - event: ESetParamUint(indexed address,indexed string,uint256)
+          handler: handleESetParamUint
+      # blockHandlers:
+      #   - handler: handleBlock
+      file: ./src/mappings/DInterest.ts
+templates:
+  - kind: ethereum/contract
+    name: ERC721
+    network: avalanche
+    source:
+      abi: ERC721
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DPool
+        - Deposit
+        - User
+      abis:
+        - name: ERC721
+          file: ./abis/ERC721.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/mappings/ERC721.ts

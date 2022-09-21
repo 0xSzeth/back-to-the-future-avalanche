@@ -841,7 +841,9 @@ export class DInterest extends ethereum.SmartContract {
       [ethereum.Value.fromUnsignedBigInt(depositID)]
     );
 
-    return result[0].toTuple() as DInterest__getDepositResultValue0Struct;
+    return changetype<DInterest__getDepositResultValue0Struct>(
+      result[0].toTuple()
+    );
   }
 
   try_getDeposit(
@@ -857,7 +859,7 @@ export class DInterest extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as DInterest__getDepositResultValue0Struct
+      changetype<DInterest__getDepositResultValue0Struct>(value[0].toTuple())
     );
   }
 
@@ -868,7 +870,9 @@ export class DInterest extends ethereum.SmartContract {
       [ethereum.Value.fromUnsignedBigInt(fundingID)]
     );
 
-    return result[0].toTuple() as DInterest__getFundingResultValue0Struct;
+    return changetype<DInterest__getFundingResultValue0Struct>(
+      result[0].toTuple()
+    );
   }
 
   try_getFunding(
@@ -884,7 +888,7 @@ export class DInterest extends ethereum.SmartContract {
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(
-      value[0].toTuple() as DInterest__getFundingResultValue0Struct
+      changetype<DInterest__getFundingResultValue0Struct>(value[0].toTuple())
     );
   }
 
